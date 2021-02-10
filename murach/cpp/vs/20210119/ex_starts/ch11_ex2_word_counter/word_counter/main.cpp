@@ -3,11 +3,14 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <algorithm>
 
 using namespace std;
 
 vector<string> load_words(string filename);
 map<string, int> get_word_count(const vector<string>& words);
+void display(pair<string, int> p);
+bool over_1(pair<string, int> p);
 
 int main() {
 	cout << "The Word Counter program\n\n";
@@ -30,10 +33,14 @@ int main() {
 	cout << endl << endl;
 
 	cout << "COUNT PER WORD: ";
-	for (auto pair : word_count) {
-		cout << pair.first << '=' << pair.second << ' ';
-	}
+	for_each(word_count.begin(), word_count.end(), display);
+	//for (auto pair : word_count) {
+	//	cout << pair.first << '=' << pair.second << ' ';
+	//}
 	cout << endl << endl;
+
+	auto dups = count_if(word_count.begin(), word_count.end(), over_1);
+	cout << dups << " DUPLICATE WORDS\n";
 }
 
 vector<string> load_words(string filename) {
@@ -76,4 +83,12 @@ map<string, int> get_word_count(const vector<string>& words) {
 		}
 	}
 	return word_count;
+}
+
+void display(pair<string, int> p) {
+	cout << p.first << '=' << p.second << " ";
+}
+
+bool over_1(pair<string, int> p) {
+	return p.second > 1;
 }

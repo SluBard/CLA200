@@ -15,7 +15,9 @@ char get_choice() {
 void display_codes(const map<string, string>& countries) {
 	cout << "Country codes: ";
 	// display codes
-
+	for (auto p : countries) {
+		cout << " " << p.first;
+	}
 	cout << endl << endl;
 }
 
@@ -29,9 +31,17 @@ void display_country(const map<string, string>& countries) {
 	}
 
 	// get iterator for map element with code
+	auto search = countries.find(upper_code);
 
 	// if the code isn't found, display a message
-	// if the code is found, display the country name
+	if (search == countries.end()) {
+		cout << "Country code not found.\n";
+	}
+	else {
+		// if the code is found, display the country name
+		//cout << "You selected " << search->second << "!\n";
+		cout << "You selected " << countries.at(upper_code) << "!\n";
+	}
 }
 
 int main()
@@ -41,7 +51,14 @@ int main()
 	cout << "The Country Codes Program\n\n";
 
 	// display the country codes
+	display_codes(countries);
 
 	// while the user indicates they want to continue, display a country
+	char choice = 'y';
+	while (choice == 'y') {
+		display_country(countries);
+		cout << "\n";
+		choice = get_choice();
+	}
 }
 

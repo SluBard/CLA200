@@ -3,27 +3,31 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <set>
 
 using namespace std;
 
-vector<string> display_and_load_words(string filename);
-map<string, int> get_word_count(const vector<string>& words);
+multiset<string> display_and_load_words(string filename);
+map<string, int> get_word_count(const multiset<string>& words);
 
 int main() {
     cout << "The Word Counter program\n\n";
 
     string filename = "dickens.txt";
+    cout << "FILE TEXT: ";
     auto words = display_and_load_words(filename);
+    cout << "\n\nWORD COUNT: " << words.size() << "\n\n";
 
-    cout << words.size() << " WORDS: ";
-    for (string word : words) {
-        cout << word << ' ';
-    }
-    cout << endl << endl;
+    //cout << words.size() << " WORDS: ";
+    //for (string word : words) {
+    //    cout << word << ' ';
+    //}
+
 
     auto word_count = get_word_count(words);
 
     cout << word_count.size() << " UNIQUE WORDS: ";
+
     for (auto pair : word_count) {
         cout << pair.first << ' ';
     }
@@ -34,16 +38,17 @@ int main() {
         cout << pair.first << '=' << pair.second << ' ';
     }
     cout << endl << endl;
+
 }
 
-vector<string> display_and_load_words(string filename) {
-    vector<string> words;
+multiset<string> display_and_load_words(string filename) {
+    multiset<string> words;
     ifstream infile(filename);
 
     if (infile) {
         string word;
         while (infile >> word) {
-
+            cout << word << " ";
             string new_word = "";
             for (char c : word) {
                 if (c == '.' || c == ',') {
@@ -56,15 +61,15 @@ vector<string> display_and_load_words(string filename) {
                     new_word += c;
                 }
             }
-			cout << new_word << ' ';
-            words.push_back(new_word);      // add word 
+			//cout << new_word << ' ';
+            words.insert(new_word);      // add word 
         }
         infile.close();
     }
     return words;
 }
 
-map<string, int> get_word_count(const vector<string>& words) {
+map<string, int> get_word_count(const multiset<string>& words) {
     map<string, int> word_count{};
 
     for (string word : words) {
