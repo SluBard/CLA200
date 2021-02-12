@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\student\Desktop\CLA200\murach\cpp\vs\20210119\ex_starts\ch13_ex2_word_counter\word_counter\main.cpp(33,20): warning C4101: 'e': unreferenced local variable
+  word_counter.vcxproj -> C:\Users\student\Desktop\CLA200\murach\cpp\vs\20210119\ex_starts\ch13_ex2_word_counter\x64\Debug\word_counter.exe

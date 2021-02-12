@@ -21,7 +21,19 @@ int main() {
 	cout << "Enter a file name: ";
 	cin >> filename;
 
-	auto words = load_words(filename);
+	vector < string > words;
+	try {
+		words = load_words(filename);
+	}
+	catch(FileNotFound &e) {
+		cout << e.message << e.filename << "\n";
+		cout << "Bye!\n";
+		return 0;
+	}
+	catch (exception& e) {
+		cout << "Unknown Exception...\n";
+		throw;
+	}
 
 	cout << endl;
 	cout << words.size() << " WORDS: ";
@@ -68,8 +80,16 @@ vector<string> load_words(string filename) {
 			words.push_back(new_word);      // add word 
 		}
 		infile.close();
+		return words;
 	}
-	return words;
+	else {
+		FileNotFound error;
+		error.filename = filename;
+		error.message = "File Not Found: ";
+		throw error;
+		//throw exception("message");
+	}
+
 }
 
 map<string, int> get_word_count(const vector<string>& words) {
