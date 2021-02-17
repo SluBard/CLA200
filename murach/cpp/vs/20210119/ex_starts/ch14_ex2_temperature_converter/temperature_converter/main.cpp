@@ -1,13 +1,14 @@
 #include <iostream>
 #include <cmath>
+#include "Temp.h"
 
 using namespace std;
 
 // declare functions
 void display_menu();
 void convert_temp();
-double to_celsius(double fahrenheit);
-double to_fahrenheit(double celsius);
+//double to_celsius(double fahrenheit);
+//double to_fahrenheit(double celsius);
 
 int main() {
 
@@ -36,6 +37,7 @@ void display_menu() {
 }
 
 void convert_temp() {
+    Temp t;
     int option;
     cout << "Enter a menu option: ";
     cin >> option;
@@ -47,26 +49,28 @@ void convert_temp() {
         cout << "Enter degrees Fahrenheit: ";
         cin >> f;
 
-        c = to_celsius(f);
-        c = round(c * 10) / 10;
+        t.set_f(f);
+        //c = to_celsius(f);
+        //c = round(c * 10) / 10;
 
-        cout << "Degrees Celsius: " << c << endl;
+        cout << "Degrees Celsius: " << t.get_c() << endl;
         break;
     case 2:
         cout << "Enter degrees Celsius: ";
         cin >> c;
 
-        f = to_fahrenheit(c);
-        f = round(f * 10) / 10;
+        t.set_c(c);
+        //f = to_fahrenheit(c);
+        //f = round(f * 10) / 10;
 
-        cout << "Degrees Fahrenheit: " << f << endl;
+        cout << "Degrees Fahrenheit: " << t.get_f() << endl;
         break;
     default:
         cout << "You must enter a valid menu number.\n";
         break;
     }
 }
-
+/*
 double to_celsius(double fahrenheit) {
     double celsius = (fahrenheit - 32.0) * 5.0 / 9.0;
     return celsius;
@@ -76,3 +80,4 @@ double to_fahrenheit(double celsius) {
     double fahrenheit = celsius * 9.0 / 5.0 + 32.0;
     return fahrenheit;
 }
+*/

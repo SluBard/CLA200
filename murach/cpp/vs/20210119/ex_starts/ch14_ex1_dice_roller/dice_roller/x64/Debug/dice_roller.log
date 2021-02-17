@@ -1,0 +1,3 @@
+﻿  Die.cpp
+C:\Users\student\Desktop\CLA200\murach\cpp\vs\20210119\ex_starts\ch14_ex1_dice_roller\dice_roller\Die.cpp(9,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  dice_roller.vcxproj -> C:\Users\student\Desktop\CLA200\murach\cpp\vs\20210119\ex_starts\ch14_ex1_dice_roller\x64\Debug\dice_roller.exe
