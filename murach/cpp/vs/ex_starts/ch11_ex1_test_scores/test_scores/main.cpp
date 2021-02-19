@@ -1,16 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <algorithm>
-#include <numeric>
 
 using namespace std;
-bool rev_sort(int a, int b) {
-    return a > b;
-}
-void display(int a) {
-    cout << a << " ";
-}
+
 int main()
 {
     cout << "The Test Scores program\n\n";
@@ -44,25 +37,11 @@ int main()
         cout << "\nNo scores entered\n.";
     }
     else {                                 // vector contains scores
-        // sort scores
-        sort(scores.begin(), scores.end(),rev_sort);
-        cout << "\n";
-        for_each(scores.begin(), scores.end(), display);
-        cout << "\n";
-
-        auto max = max_element(scores.begin(), scores.end());
-        auto min = min_element(scores.begin(), scores.end());
-        int cnt = count(scores.begin(), scores.end(), 100);
-
-        cout << "Highest score: " << *max << "\n";
-        cout << "Lowest score: " << *min << "\n";
-        cout << "This student has " << cnt << " perfect score(s)!\n";
-
         // calculate total of all scores
-        int total = accumulate(scores.begin(), scores.end(), 0);
-        //for (int score : scores) {
-        //    total += score;
-        //}
+        int total = 0;
+        for (int score : scores) {
+            total += score;
+        }
 
         // get the count and calculate the average
         auto score_count = scores.size();

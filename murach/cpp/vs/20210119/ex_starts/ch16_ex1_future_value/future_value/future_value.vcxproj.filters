@@ -21,9 +21,15 @@
     <ClCompile Include="console.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="Finance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="console.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Finance.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

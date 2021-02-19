@@ -15,17 +15,12 @@ int main()
         cout << "Enter score: ";
         cin >> score;
 
-        if (score == -1) {
-            break;
-        }
-        /*
 		if (score != -1) {
 			count += 1;
 		}
 		else {
 			break;
 		}
-        */
 
 		if (score >= 0 && score <= 100) {
 			total += score;

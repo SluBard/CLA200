@@ -6,17 +6,6 @@
 
 using namespace std;
 
-/*
-struct MinScore {
-    int minimum;
-    MinScore(int m) {
-        minimum = m;
-    }
-    bool operator()(int a) const {
-        return a >= minimum;
-    }
-};
-*/
 int sort_descending(int i, int j) {
 	return i > j;
 }
@@ -73,18 +62,8 @@ int main()
 		cout << "Lowest score: " << *min_iter << endl;
 
 		// display number of scores equal to 100
-		//int count_100 = count(scores.begin(), scores.end(), 100);
-        //cout << "This student has " << count_100 << " perfect score(s)!" << endl;
-        int min = 90;
-        //auto cnt = count_if(scores.begin(), scores.end(), MinScore(min));
-        auto over = [&min](int a) {return a >= min; };
-        auto cnt = count_if(scores.begin(), scores.end(), over);
-		cout << "This student has " << cnt << " score(s) over " << min << "!" << endl;
-
-        min = 80;
-        //auto cnt = count_if(scores.begin(), scores.end(), MinScore(min));
-        cnt = count_if(scores.begin(), scores.end(), over);
-        cout << "This student has " << cnt << " score(s) over " << min << "!" << endl;
+		int count_100 = count(scores.begin(), scores.end(), 100);
+		cout << "This student has " << count_100 << " perfect score(s)!" << endl;
 
         // calculate total of all scores
         int total = accumulate(scores.begin(), scores.end(), 0);

@@ -78,6 +78,72 @@ int main()
     }
     cout << endl;
 
+    // get the email
+    string email;
+    bool valid_email = false;
+    while (!valid_email) {
+
+        // set valid flag
+        valid_email = true;
+
+        // get password
+        cout << "Enter email: ";
+        getline(cin, email);
+
+        // make sure email has @
+        int at_index = email.find("@");
+        if ( at_index == -1) {
+            cout << "Email address must contain an @.\n";
+            valid_email = false;
+        }
+
+        // make sure the domain has a '.'
+        int dot_index = email.rfind(".");
+        if ( dot_index == -1) {
+            cout << "The email must include a dot character (.).\n";
+            valid_email = false;
+        }
+
+        // make sure the remaining characters are alphanumeric
+        bool valid_chars = true;
+        for (char c : email) {
+            if (c != '@' && c != '.' && c != '_' && c != '-' && !isalnum(c) ) {
+                valid_chars = false;
+                break;
+            }
+        }
+        if (!valid_chars) {
+            cout << "The email contains invalid characters.\n";
+            valid_email = false;
+        }
+
+        // make sure there is at least one character before the at sign
+        if (at_index == 0) {
+            cout << "The local part of the email must include at least one character.\n";
+            valid_email = false;
+        }
+
+        // make sure there is at least one character before the dot character
+        if (dot_index - at_index == 1) {
+            cout << "The server name of the email must include at least one character.\n";
+            valid_email = false;
+        }
+
+
+        // make sure domain has 2 or 3 characters
+        int length_of_domain = email.size() - dot_index - 1;
+        if (length_of_domain < 2 || length_of_domain > 3) {
+            cout << "The domain name of the email must have two or three characters.\n";
+            valid_email = false;
+        }
+
+        // display message if password is not valid
+        if (!valid_email) {
+            cout << "Please try again.\n";
+        }
+    }
+    cout << endl;
+
     // make sure first name uses initial cap
     char letter = first_name[0];
     first_name[0] = toupper(letter);

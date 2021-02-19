@@ -21,12 +21,17 @@ public:
 		radius = radius_param;
 	}
 
+
 	// function declarations
 	double get_diameter() const;
 	double get_circumference() const;
 	double get_area() const;
 
 	// operator declarations go here
+	Circle operator+(const Circle& );
+	Circle operator-(const Circle& );
+	Circle operator++();
+	friend std::ostream& operator<< (std::ostream&, const Circle&);
 };
 
 #endif MURACH_CIRCLE_H
