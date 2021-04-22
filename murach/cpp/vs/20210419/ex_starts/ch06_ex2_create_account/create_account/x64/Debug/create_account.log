@@ -1,0 +1,8 @@
+﻿  main.cpp
+C:\Users\student\Desktop\murach\cpp\vs\ex_starts\ch06_ex2_create_account\create_account\main.cpp(19,53): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\student\Desktop\murach\cpp\vs\ex_starts\ch06_ex2_create_account\create_account\main.cpp(25,46): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\student\Desktop\murach\cpp\vs\ex_starts\ch06_ex2_create_account\create_account\main.cpp(55,57): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\student\Desktop\murach\cpp\vs\ex_starts\ch06_ex2_create_account\create_account\main.cpp(94,39): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\student\Desktop\murach\cpp\vs\ex_starts\ch06_ex2_create_account\create_account\main.cpp(101,41): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\student\Desktop\murach\cpp\vs\ex_starts\ch06_ex2_create_account\create_account\main.cpp(134,60): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  create_account.vcxproj -> C:\Users\student\Desktop\murach\cpp\vs\ex_starts\ch06_ex2_create_account\x64\Debug\create_account.exe
