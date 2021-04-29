@@ -1,5 +1,5 @@
 ﻿  main.cpp
-C:\Users\student\Desktop\murach\cpp\vs\ex_starts\ch07_ex1_mpg\mpg\main.cpp(20,9): warning C4101: 'total_miles': unreferenced local variable
-C:\Users\student\Desktop\murach\cpp\vs\ex_starts\ch07_ex1_mpg\mpg\main.cpp(22,9): warning C4101: 'avg_mpg': unreferenced local variable
-C:\Users\student\Desktop\murach\cpp\vs\ex_starts\ch07_ex1_mpg\mpg\main.cpp(21,9): warning C4101: 'total_gallons': unreferenced local variable
-  mpg.vcxproj -> C:\Users\student\Desktop\murach\cpp\vs\ex_starts\ch07_ex1_mpg\x64\Debug\mpg.exe
+C:\Users\student\Desktop\CLA200\murach\cpp\vs\20210419\ex_starts\ch07_ex1_mpg\mpg\main.cpp(20,9): warning C4101: 'total_miles': unreferenced local variable
+C:\Users\student\Desktop\CLA200\murach\cpp\vs\20210419\ex_starts\ch07_ex1_mpg\mpg\main.cpp(22,9): warning C4101: 'avg_mpg': unreferenced local variable
+C:\Users\student\Desktop\CLA200\murach\cpp\vs\20210419\ex_starts\ch07_ex1_mpg\mpg\main.cpp(21,9): warning C4101: 'total_gallons': unreferenced local variable
+  mpg.vcxproj -> C:\Users\student\Desktop\CLA200\murach\cpp\vs\20210419\ex_starts\ch07_ex1_mpg\x64\Debug\mpg.exe

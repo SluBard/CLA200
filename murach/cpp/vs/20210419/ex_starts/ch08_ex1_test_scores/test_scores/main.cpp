@@ -16,19 +16,16 @@ int main()
         cin >> score;
 
 		if (score != -1) {
-			count += 1;
-		}
-		else {
+            if (score >= 0 && score <= 100) {
+                total += score;
+                count += 1;
+            } else {
+                cout << "Score must be from 0 through 100. Try again.\n";
+            }
+		} else {
 			break;
 		}
 
-		if (score >= 0 && score <= 100) {
-			total += score;
-			count += 1;
-		}
-		else {
-			cout << "Score must be from 0 through 100. Try again.\n";
-		}
     }
 
     // calculate the average score - make sure not to divide by zero
