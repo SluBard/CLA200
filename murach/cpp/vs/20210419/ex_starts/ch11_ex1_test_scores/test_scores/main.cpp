@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <algorithm>
 
 using namespace std;
 
@@ -42,6 +43,15 @@ int main()
         for (int score : scores) {
             total += score;
         }
+
+        // Sort in descending order
+        cout << "\n";
+        sort(scores.begin(), scores.end(), [](auto a, auto b) {return a > b; });
+        for_each(scores.begin(), scores.end(), [](auto a) {cout << a << " "; });
+        cout << "\n";
+        cout << "Highest score: " << *max_element(scores.begin(), scores.end()) << "\n";
+        cout << "Lowest score: " << *min_element(scores.begin(), scores.end()) << "\n";
+        cout << "This student has " << count_if(scores.begin(), scores.end(), [](auto a) {return a == 100; }) << " perfect score(s)!\n";
 
         // get the count and calculate the average
         auto score_count = scores.size();
