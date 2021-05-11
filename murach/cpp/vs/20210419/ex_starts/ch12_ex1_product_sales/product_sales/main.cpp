@@ -4,6 +4,7 @@
 
 using namespace std;
 
+
 int main()
 {
 	cout << "The Product Sales program\n\n";
@@ -11,9 +12,14 @@ int main()
 	cout << "Enter product sales from 0 to 10,000.\n"
 		<< "To end the program, enter -1.\n\n";
 
-	vector<double> sales;
+	//vector<double> sales;
+
+	const int mysize = 12; //new
+	double sales[mysize] = {0.0}; //new
+	int sales_count = 0; //new
+
 	double sale = 0.0;
-	while (sale != -1) {
+	while (sale != -1 && sales_count < mysize) {
 		cout << "Enter sales amount: ";
 		cin >> sale;
 
@@ -29,11 +35,13 @@ int main()
 			cout << "Score can't be a negative number. Try again.\n";
 		}
 		else if (sale > -1) {        // valid sale amount – add to vector
-			sales.push_back(sale);
+			//sales.push_back(sale);
+			sales[sales_count++] = sale; //new
 		}
 	}
 
-	if (sales.empty()) {             // vector is empty
+	//if (sales.empty()) {             // vector is empty
+	if (sales_count == 0){ //new
 		cout << "\nNo sales entered.\n\n";
 	}
 	else {                           // vector contains sales
@@ -44,7 +52,7 @@ int main()
 		}
 
 		// get the count and calculate the average
-		auto sales_count = sales.size();
+		//auto sales_count = sales.size();
 		double average = static_cast<double>(total) / sales_count;
 		average = round(average * 100) / 100;
 

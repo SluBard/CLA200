@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\student\Desktop\CLA200\murach\cpp\vs\20210419\ex_starts\ch11_ex3_test_scores\test_scores\main.cpp(90,19): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+C:\Users\student\Desktop\CLA200\murach\cpp\vs\20210419\ex_starts\ch11_ex3_test_scores\test_scores\main.cpp(93,25): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+  test_scores.vcxproj -> C:\Users\student\Desktop\CLA200\murach\cpp\vs\20210419\ex_starts\ch11_ex3_test_scores\x64\Debug\test_scores.exe

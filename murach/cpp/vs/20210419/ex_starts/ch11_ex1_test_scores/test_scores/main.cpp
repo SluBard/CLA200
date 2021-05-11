@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <numeric>
 #include <algorithm>
 
 using namespace std;
@@ -39,10 +40,13 @@ int main()
     }
     else {                                 // vector contains scores
         // calculate total of all scores
+        /*
         int total = 0;
         for (int score : scores) {
             total += score;
         }
+        */
+        int total = accumulate(scores.begin(), scores.end(), 0);
 
         // Sort in descending order
         cout << "\n";

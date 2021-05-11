@@ -3,6 +3,7 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
+#include <cstring>
 
 using namespace std;
 
@@ -13,16 +14,24 @@ int main() {
         << "Enter 'exit' to exit.\n\n";
 
     // define a vector of possible words
-    vector<string> words { "guitar", "violin", "tapestry" };
+    const int rows = 3;
+    const int cols = 9;
+    //vector<string> words { "guitar", "violin", "tapestry" };
+    char words[rows][cols]={ "guitar", "violin", "tapestry" };
 
     // get random word from vector
     srand(time(nullptr));
-    int index = rand() % words.size();
-    string word = words[index];
+    //int index = rand() % words.size();
+    int index = rand() % 3;
+    //string word = words[index];
+    char *word = words[index];
 
     // jumble the word
-    string jumbled_word = word;
-    auto length = word.size();
+    //string jumbled_word = word;
+    char jumbled_word[cols] = "";
+    strncpy(jumbled_word, word, strlen(word));
+    //auto length = word.size();
+    auto length = strlen(word);
     for (int index1 = 0; index1 < length; ++index1) {
         int index2 = rand() % length;
         char temp = jumbled_word[index1];
@@ -39,19 +48,23 @@ int main() {
 
     // loop until the user guesses the jumble or enters 'exit'
     int hint_count = 1;
-    string guess = "";
+    //string guess = "";
+    char guess[cols] = "";
     while (guess != "exit") {
         cout << "Your guess: ";
         cin >> guess;
         cin.ignore(1000, '\n');
 
-        if (guess == word) {
+        //if (guess == word) {
+        if (strcmp(guess,word)==0) {
             cout << "Congratulations! You guessed it.\n\n";
             break;
         }
-        else if (guess == "hint") {
+        //else if (guess == "hint") {
+        else if (strcmp(guess,"hint")==0) {
             cout << "Hint: ";
-            for (int i = 0; i < word.length(); ++i) {
+            //for (int i = 0; i < word.length(); ++i) {
+            for (int i = 0; i < strlen(word); ++i) {
                 if (i < hint_count) {
                     cout << static_cast<char>(toupper(word[i])) << ' ';
                 }
