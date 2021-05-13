@@ -21,7 +21,16 @@ int main() {
 	cout << "Enter a file name: ";
 	cin >> filename;
 
-	auto words = load_words(filename);
+	vector<string> words;
+	try {
+		words = load_words(filename);
+	}
+	catch (FileNotFound& e) {
+		cout << e.message << "\n";
+		cout << "You entered: " << e.filename << ".\n";
+		cout << "Exiting program...\n";
+		return 0;
+	}
 
 	cout << endl;
 	cout << words.size() << " WORDS: ";
@@ -68,6 +77,11 @@ vector<string> load_words(string filename) {
 			words.push_back(new_word);      // add word 
 		}
 		infile.close();
+	} else {
+		FileNotFound e;
+		e.filename = filename;
+		e.message = "File not found.";
+		throw e;
 	}
 	return words;
 }

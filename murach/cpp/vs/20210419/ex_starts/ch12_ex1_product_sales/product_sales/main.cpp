@@ -47,8 +47,9 @@ int main()
 	else {                           // vector contains sales
 									 // calculate total of all sales
 		double total = 0.0;
-		for (double sale : sales) {
-			total += sale;
+		//for (double sale : sales) {
+		for (int i = 0; i < sales_count; i++) {
+			total += sales[i];
 		}
 
 		// get the count and calculate the average

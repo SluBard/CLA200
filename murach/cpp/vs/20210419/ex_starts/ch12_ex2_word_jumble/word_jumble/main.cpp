@@ -22,14 +22,18 @@ int main() {
     // get random word from vector
     srand(time(nullptr));
     //int index = rand() % words.size();
-    int index = rand() % 3;
+    int index = rand() % rows;
     //string word = words[index];
-    char *word = words[index];
+    //char *word = words[index];
+    char word[cols]="";
+    //strncpy(word, words[index],cols);
+    strncpy(word, words[index], strlen(words[index])+1);
+    cout << strlen(words[index]) << "\n";
 
     // jumble the word
     //string jumbled_word = word;
     char jumbled_word[cols] = "";
-    strncpy(jumbled_word, word, strlen(word));
+    strncpy(jumbled_word, word, strlen(word)+1);
     //auto length = word.size();
     auto length = strlen(word);
     for (int index1 = 0; index1 < length; ++index1) {
