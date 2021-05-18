@@ -6,7 +6,12 @@ using namespace std;
 
 int main() {
     cout << "The Dice Roller program\n\n";
-
+    for (int i = 6; i > 0; i--) {
+        Die die;
+        die.set_value(i);
+        cout << die.get_image();
+    }
+    /*
     cout << " _____ \n";
     cout << "|o   o|\n";
     cout << "|o   o|\n";
@@ -36,7 +41,7 @@ int main() {
     cout << "|     |\n";
     cout << "|  o  |\n";
     cout << "|____ |\n";
-
+    */
     cout << endl;
 
      // get number of dice from user
@@ -55,10 +60,12 @@ int main() {
     while (choice == 'y') {
         // roll the dice
         dice.roll_all();
-        cout << "YOUR ROLL: ";
+        cout << "YOUR ROLL: \n";
         for (Die die : dice.get_dice()) {
-            cout << die.get_value() << " ";
+            //cout << die.get_value() << " ";
+            cout << die.get_image() << " ";
         }
+        cout << "\nTotal: " << dice.get_total() << "\n";
         cout << endl;
 
         cout << "Roll again? (y/n): ";

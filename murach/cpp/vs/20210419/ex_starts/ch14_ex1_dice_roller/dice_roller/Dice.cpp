@@ -15,3 +15,11 @@ void Dice::roll_all() {
 std::vector<Die> Dice::get_dice() const {
     return dice;
 }
+
+int Dice::get_total() const {
+    int total = 0;
+    for (auto die : dice) {
+        total += die.get_value();
+    }
+    return total;
+}
