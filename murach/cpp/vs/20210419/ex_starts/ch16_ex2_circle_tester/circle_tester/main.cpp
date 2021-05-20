@@ -19,16 +19,28 @@ int main() {
 
 	// create and display Circle object
 	Circle circle1(20);
-	cout << "CIRCLE 1:\n";
-	display(circle1);
-	cout << endl;
+	cout << "CIRCLE 1:\n" << circle1 << "\n";
+	//display(circle1);
+	//cout << endl;
 
 	Circle circle2(10);
-	cout << "CIRCLE 2:\n";
-	display(circle2);
-	cout << endl;
+	cout << "CIRCLE 2:\n" << circle2 << "\n";
+	//display(circle2);
+	//cout << endl;
 
 	// test the addition and subtraction operators
+	Circle circle3 = circle1 + circle2;
+	cout << "CIRCLE 3 (CIRCLE1 + CIRCLE2):\n" << circle3 << "\n";
+	//display(circle3);
+	//cout << endl;
 
+	Circle circle4 = circle1 - circle2;
+	cout << "CIRCLE 4 (CIRCLE1 - CIRCLE2):\n" << circle4 << "\n";
+	//display(circle4);
+	//cout << endl;
 	// test the increment operator
+	
+	cout << "CIRCLE 4 after ++:\n" << ++circle4 << "\n";
+	//display(circle4);
+	//cout << endl;
 }
