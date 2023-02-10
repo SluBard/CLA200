@@ -11,10 +11,10 @@ namespace console {
     // define general-purpose functions
     double get_double(std::string prompt, double min, double max) {
         double num = 0.0;
-        is_valid = false;
+        bool is_valid = false;// missing type
         while (!is_valid) {
             std::cout << prompt;
-            if (!(std::cin >> num) {
+            if (!(std::cin >> num)) { // missing parathesis
                 handle_invalid_number();
             }
             else {
@@ -22,7 +22,7 @@ namespace console {
 				is_valid = check_range(num, min, max);
             }
         }
-        return Num;
+        return num; // wrong case num not Num
     }
 
     int get_int(std::string prompt, int min, int max) {

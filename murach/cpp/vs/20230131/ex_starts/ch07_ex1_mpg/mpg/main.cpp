@@ -173,8 +173,9 @@ void display_file_data() {
     while (infile >> miles >> gallons) {
       total_miles += miles;
       total_gallons += gallons;
-      mpg = miles / gallons;
-      mpg = round(mpg * 100) / 100;
+      //mpg = miles / gallons;
+      //mpg = round(mpg * 100) / 100;
+      mpg = calculate_mpg(miles, gallons);
       cout << fixed << setprecision(1);
       cout << setw(8) << miles << setw(12) << gallons;
       cout << fixed << setprecision(2);
@@ -182,7 +183,8 @@ void display_file_data() {
     }
     infile.close();
 
-    avg_mpg = total_miles / total_gallons;
+    //avg_mpg = total_miles / total_gallons;
+    avg_mpg = calculate_mpg(total_miles, total_gallons);
 
     cout << fixed << setprecision(2) << showpoint << endl;
     cout << left << setw(15) << "Total miles:" << right << setw(10)
