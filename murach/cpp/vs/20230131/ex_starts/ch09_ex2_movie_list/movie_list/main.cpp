@@ -7,6 +7,8 @@
 
 using namespace std;
 
+enum class Commands :char {view = 'v', add = 'a', del = 'd', exit = 'x'};
+
 struct Movie {
     string title = "";
     unsigned int year = 0;
@@ -133,10 +135,10 @@ void delete_movie(vector<Movie>& movies) {
 
 void display_menu() {
     cout << "COMMANDS\n"
-        << "v - View movie list\n"
-        << "a - Add a movie\n"
-        << "d - Delete a movie\n"
-        << "x - Exit\n\n";
+        << static_cast<char>(Commands::view) << " - View movie list\n"
+        << static_cast<char>(Commands::add) << " - Add a movie\n"
+        << static_cast<char>(Commands::del) << " - Delete a movie\n"
+        << static_cast<char>(Commands::exit) << " - Exit\n\n";
 }
 
 int main() {
@@ -147,17 +149,17 @@ int main() {
     while (command != 'x') {
         cout << "Command: ";
         cin >> command;
-        switch (command) {
-        case 'v':
+        switch (static_cast<Commands>(command)) {
+          case Commands::view:
             view_movies(movies);
             break;
-        case 'a':
+          case Commands::add:
             add_movie(movies);
             break;
-        case 'd':
+          case Commands::del:
             delete_movie(movies);
             break;
-        case 'x':
+          case Commands::exit:
             cout << "Bye!\n\n";
             break;
         default:
