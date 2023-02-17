@@ -8,8 +8,13 @@ int main() {
     cout << "The Dice Roller program\n\n";
   for (int i = 6; i > 0; i--) {
       Die die;
-      die.set_value(i);
-      cout << die.get_image();
+      try {
+        die.set_value(i);
+        cout << die.get_image();
+      } 
+      catch (const std::invalid_argument &e) {
+        cout << e.what() << endl;
+      }
   }
     cout << endl;
 
