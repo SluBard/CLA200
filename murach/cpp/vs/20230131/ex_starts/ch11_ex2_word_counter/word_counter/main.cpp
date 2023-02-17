@@ -7,6 +7,11 @@ using namespace std;
 
 vector<string> load_words(string filename);
 
+struct FileNotFound {
+	string msg;
+	string filename;
+};
+
 int main() {
 	cout << "The Word Counter program\n\n";
 
@@ -14,8 +19,19 @@ int main() {
 	cout << "Enter a file name: ";
 	cin >> filename;
 
-	auto words = load_words(filename);
-
+	vector<string> words;
+        try {
+          words = load_words(filename);
+        } 
+		catch (const FileNotFound &e) {
+          cout << e.msg;
+          cout << "You entered: " << e.filename << ".\n";
+          cout << "Exiting program...";
+          return 0;
+		}
+		catch (...) {
+          throw;
+		}
 	cout << endl;
 	cout << words.size() << " WORDS: ";
 	for (string word : words) {
@@ -47,6 +63,11 @@ vector<string> load_words(string filename) {
 			words.push_back(new_word);      // add word 
 		}
 		infile.close();
+    } else {
+        FileNotFound error;
+		error.filename = filename;
+        error.msg = "File not found.\n";
+        throw error;
 	}
 	return words;
 }

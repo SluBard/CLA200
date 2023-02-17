@@ -44,19 +44,29 @@ void convert_temp() {
         cout << "Enter degrees Fahrenheit: ";
         cin >> f;
 
-        c = to_celsius(f);
-        c = round(c * 10) / 10;
+        try {
+          c = to_celsius(f);
+          c = round(c * 10) / 10;
 
-        cout << "Degrees Celsius: " << c << endl;
+          cout << "Degrees Celsius: " << c << endl;
+        } 
+        catch (const invalid_argument &e) {
+          cout << "Error! " << e.what() << endl;
+        }
+
         break;
     case 2:
         cout << "Enter degrees Celsius: ";
         cin >> c;
+        try {
+          f = to_fahrenheit(c);
+          f = round(f * 10) / 10;
 
-        f = to_fahrenheit(c);
-        f = round(f * 10) / 10;
-
-        cout << "Degrees Fahrenheit: " << f << endl;
+          cout << "Degrees Fahrenheit: " << f << endl;
+        }
+        catch (const invalid_argument &e) {
+          cout << "Error! " << e.what() << endl;
+        }
         break;
     default:
         cout << "You must enter a valid menu number.\n";
@@ -65,11 +75,17 @@ void convert_temp() {
 }
 
 double to_celsius(double fahrenheit) {
+    if (fahrenheit < 32 || fahrenheit > 212 ) {
+    throw invalid_argument("Temperature must be from 32F to 212F.\n");
+    }
     double celsius = (fahrenheit - 32.0) * 5.0 / 9.0;
     return celsius;
 }
 
 double to_fahrenheit(double celsius) {
+    if (celsius < 0 || celsius > 100) {
+        throw invalid_argument("Temperature must be from 0C to 100C.\n");
+    }
     double fahrenheit = celsius * 9.0 / 5.0 + 32.0;
     return fahrenheit;
 }
