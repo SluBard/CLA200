@@ -2,6 +2,7 @@
 
 #include <string>
 #include <cmath>
+#include <stdexcept>
 
 using std::string;
 using std::invalid_argument;

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include "Circle.h"
 
 using std::cout;
 using std::cin;
@@ -16,12 +17,16 @@ int main()
 	double radius;
 	cout << "Enter radius:  ";
 	cin >> radius;
+	
+	Circle c(radius);
+	//c.set_r(radius);
 
 	// make calculations
-	double pi = 3.14159;
-	double diameter = 2 * radius;
-	double circumference = diameter * pi;
-	double area = pi * pow(radius, 2.0);
+	//double pi = 3.14159;
+	double diameter = c.get_diameter(); //2 * radius;
+	double circumference = c.get_circumference(); //diameter * pi;
+	double area = c.get_area(); //pi * pow(radius, 2.0);
+
 
 	// round to 1 decimal place
 	circumference = round(circumference * 10) / 10;

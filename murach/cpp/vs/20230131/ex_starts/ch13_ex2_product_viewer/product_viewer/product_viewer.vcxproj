@@ -141,6 +141,7 @@
     <ClInclude Include="Book.h" />
     <ClInclude Include="Movie.h" />
     <ClInclude Include="Product.h" />
+    <ClInclude Include="UsedBook.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

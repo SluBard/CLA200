@@ -1,13 +1,14 @@
 #include <iostream>
 #include <cmath>
+#include "Temp.h"
 
 using namespace std;
 
 // declare functions
 void display_menu();
 void convert_temp();
-double to_celsius(double fahrenheit);
-double to_fahrenheit(double celsius);
+//double to_celsius(double fahrenheit);
+//double to_fahrenheit(double celsius);
 
 int main() {
 
@@ -42,13 +43,16 @@ void convert_temp() {
 
     double f = 0.0;
     double c = 0.0;
+    Temp temp;
     switch (option) {
     case 1:
         cout << "Enter degrees Fahrenheit: ";
         cin >> f;
 
-        c = to_celsius(f);
-        c = round(c * 10) / 10;
+        //c = to_celsius(f);
+        //c = round(c * 10) / 10;
+        temp.set_f(f);
+        c = temp.get_c();
 
         cout << "Degrees Celsius: " << c << endl;
         break;
@@ -56,9 +60,10 @@ void convert_temp() {
         cout << "Enter degrees Celsius: ";
         cin >> c;
 
-        f = to_fahrenheit(c);
-        f = round(f * 10) / 10;
-
+        //f = to_fahrenheit(c);
+        //f = round(f * 10) / 10;
+        temp.set_c(c);
+        f = temp.get_f();
         cout << "Degrees Fahrenheit: " << f << endl;
         break;
     default:
@@ -66,7 +71,7 @@ void convert_temp() {
         break;
     }
 }
-
+/*
 double to_celsius(double fahrenheit) {
     double celsius = (fahrenheit - 32.0) * 5.0 / 9.0;
     return celsius;
@@ -76,3 +81,4 @@ double to_fahrenheit(double celsius) {
     double fahrenheit = celsius * 9.0 / 5.0 + 32.0;
     return fahrenheit;
 }
+*/

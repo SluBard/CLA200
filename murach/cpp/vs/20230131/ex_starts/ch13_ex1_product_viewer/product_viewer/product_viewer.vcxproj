@@ -138,7 +138,9 @@
     <ClCompile Include="Product.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Album.h" />
     <ClInclude Include="Book.h" />
+    <ClInclude Include="Media.h" />
     <ClInclude Include="Movie.h" />
     <ClInclude Include="Product.h" />
   </ItemGroup>

@@ -23,6 +23,6 @@ public:
     double get_discount_price() const;
 
     // virtual function - necessary for polymorphism
-    virtual std::string get_description() const;
+    virtual std::string get_description() const = 0;
 };
 #endif // MURACH_PRODUCT_H
