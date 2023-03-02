@@ -6,17 +6,19 @@
 
 using namespace std;
 
-//struct MinScore {
-//	int minimum;
-//
-//	MinScore(int min) {
-//		minimum = min;
-//	}
-//
-//	bool operator () (int i) const {
-//		return i >= minimum;
-//	}
-//};
+/*
+struct MinScore {
+	int minimum;
+
+	MinScore(int min) {
+		minimum = min;
+	}
+
+	bool operator () (int i) const {
+		return i >= minimum;
+	}
+};
+*/
 
 int sort_descending(int i, int j) {
 	return i > j;
@@ -79,12 +81,14 @@ int main()
 
 		// use a function object to display the number of scores
 		// that are greater than or equal to different values
-		//int minimum = 90;
-		//auto count_over = count_if(scores.begin(), scores.end(), MinScore(minimum));
-		//cout << "Scores " << minimum << " or above: " << count_over << endl;
-		//minimum = 80;
-		//count_over = count_if(scores.begin(), scores.end(), MinScore(minimum));
-		//cout << "Scores " << minimum << " or above: " << count_over << endl;
+		/*
+		int minimum = 90;
+		auto count_over = count_if(scores.begin(), scores.end(), MinScore(minimum));
+		cout << "Scores " << minimum << " or above: " << count_over << endl;
+		minimum = 80;
+		count_over = count_if(scores.begin(), scores.end(), MinScore(minimum));
+		cout << "Scores " << minimum << " or above: " << count_over << endl;
+		*/
 
 		// use a lambda expression to display the number of scores
 		// that are greater than or equal to different values
@@ -95,7 +99,7 @@ int main()
 		minimum = 80;
 		count_over = count_if(scores.begin(), scores.end(), min_score);
 		cout << "Scores " << minimum << " or above: " << count_over << endl;
-
+		
         // calculate total of all scores
         int total = accumulate(scores.begin(), scores.end(), 0);
 

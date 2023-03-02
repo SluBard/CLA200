@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <algorithm>
 
 using namespace std;
 
@@ -13,6 +14,8 @@ struct WordCounts {
 
 vector<string> load_words(string filename);
 vector<WordCounts> get_word_count(const vector<string>& words);
+void display(const WordCounts &);
+bool over_1(const WordCounts &);
 
 int main() {
 	cout << "The Word Counter program\n\n";
@@ -41,10 +44,15 @@ int main() {
 	cout << endl << endl;
 
 	cout << "COUNT PER WORD: ";
+	for_each(word_count.begin(), word_count.end(), display);
+	/*
 	for (auto pair : word_count) {
 		cout << pair.word << '=' << pair.count << ' ';
 	}
+	*/
 	cout << endl << endl;
+
+	cout << count_if(word_count.begin(), word_count.end(), over_1) << " DUPLICATE WORDS\n";
 }
 
 vector<string> load_words(string filename) {
@@ -93,4 +101,10 @@ vector<WordCounts> get_word_count(const vector<string>& words) {
 		found = false;
 	}
 	return word_count;
+}
+void display(const WordCounts &w) {
+	cout << w.word << "=" << w.count << " ";
+}
+bool over_1(const WordCounts& w) {
+	return w.count > 1;
 }

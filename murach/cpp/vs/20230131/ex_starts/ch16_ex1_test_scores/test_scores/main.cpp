@@ -1,9 +1,16 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <algorithm>
+#include <numeric>
 
 using namespace std;
-
+void display_int(int v) {
+    cout << v << " ";
+}
+bool sort_int_desc(int a, int b) {
+    return a > b;
+}
 int main()
 {
     cout << "The Test Scores program\n\n";
@@ -38,10 +45,23 @@ int main()
     }
     else {                                 // vector contains scores
         // calculate total of all scores
+        int total = accumulate(scores.begin(), scores.end(), 0);
+        /*
         int total = 0;
         for (int score : scores) {
             total += score;
         }
+        */
+
+        // sort scores in descending order
+        sort(scores.begin(), scores.end(), sort_int_desc);
+        // print out scores
+        cout << endl;
+        for_each(scores.begin(), scores.end(), display_int );
+        cout << endl;
+        cout << "Highest score: " << *max_element(scores.begin(), scores.end()) << endl;
+        cout << "Lowest score: " << *min_element(scores.begin(), scores.end()) << endl;
+        cout << "This student has " << count(scores.begin(), scores.end(), 100) << " perfect score(s)!\n";
 
         // get the count and calculate the average
         auto score_count = scores.size();
