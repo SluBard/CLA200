@@ -4,7 +4,11 @@
 #include <fstream>
 
 using namespace std;
-
+/*
+double calculate_mpg(double miles, double gallons) {
+	return round(miles / gallons * 100) / 100;
+}
+*/
 double calculate_mpg(double miles, double gallons);
 void display_file_data();
 
