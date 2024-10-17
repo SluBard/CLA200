@@ -50,14 +50,14 @@ double calculate_future_value(double monthly_investment,
     double yearly_interest_rate, int years) {
 
     // convert yearly values to monthly values
-    double monthly_rate = yearly_interest_rate / 100;
+    double monthly_rate = yearly_interest_rate / 100 / 12; // monthly rate needs to be divided by 12
     int months = years * 12;
 
     // calculate future value
     double future_value = 0;
     for (int i = 0; i < months; ++i) {
-        future_value = (future_value + monthly_investment) *
-			           (1 + monthly_rate);
+        future_value = (future_value + monthly_investment) * (1 + monthly_rate);
+        //cout << "month = " << i << " fv = " << future_value << endl;
     }
     return future_value;
 }
