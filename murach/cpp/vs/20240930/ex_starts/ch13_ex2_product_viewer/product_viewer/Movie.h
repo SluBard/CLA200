@@ -18,7 +18,7 @@ public:
     }
     int get_year() const { return year; }
 
-    std::string get_description() const {
+    std::string get_description() const override final {
         return name + " (" + std::to_string(year) + ')';
     }
 };

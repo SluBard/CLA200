@@ -21,7 +21,7 @@ public:
         return author;
     }
 
-    std::string get_description() const {
+    std::string get_description() const  override  {
         return name + " by " + author;
     }
 };

@@ -3,10 +3,11 @@
 #include "Product.h"
 #include "Book.h"
 #include "Movie.h"
+#include "UsedBook.h"
 
 using namespace std;
 
-const Product p1("Stanley 13 Ounce Wood Hammer", 12.99, 62);
+const UsedBook p1("When Harley Was One", 12.99, 62, "David Gerrold");
 const Book p2("The Big Short", 15.95, 34, "Michael Lewis");
 const Movie p3("The Wizard of Oz", 14.99, 50, 1939);
 
