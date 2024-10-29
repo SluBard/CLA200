@@ -1,15 +1,16 @@
 #include <iostream>
 #include <string>
 #include <limits>
+#include "console.h"
 
-namespace console {
+//namespace console {
     // declare helper functions
     void discard_remaining_chars();
     void handle_invalid_number();
     bool check_range(double num, double min, double max);
 
     // define general-purpose functions
-    double get_double(std::string prompt, double min, double max) {
+    double Console::get_double(std::string prompt, double min, double max) {
         double num = 0.0;
         bool is_valid = false;
         while (!is_valid) {
@@ -25,7 +26,7 @@ namespace console {
         return num;
     }
 
-    int get_int(std::string prompt, int min, int max) {
+    int Console::get_int(std::string prompt, int min, int max) {
         int num = 0;
         bool is_valid = false;
         while (!is_valid) {
@@ -41,7 +42,7 @@ namespace console {
         return num;
     }
 
-    char get_char(std::string prompt, bool add_blank_line) {
+    char Console::get_char(std::string prompt, bool add_blank_line) {
         char choice = 'n';
         std::cout << prompt;
         std::cin >> choice;
@@ -78,4 +79,4 @@ namespace console {
             return true;
         }
     }
-}
+//}

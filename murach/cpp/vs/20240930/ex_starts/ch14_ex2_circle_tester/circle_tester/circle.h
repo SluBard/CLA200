@@ -1,5 +1,6 @@
 #ifndef MURACH_CIRCLE_H
 #define MURACH_CIRCLE_H
+#include <iostream>
 
 class Circle
 {
@@ -27,6 +28,13 @@ public:
 	double get_area() const;
 
 	// operator declarations go here
+	Circle operator+(const Circle& rhs);
+	Circle operator-(const Circle& rhs);
+	Circle operator++();
+
+	friend std::ostream& operator<<(std::ostream&, const Circle&);
+
 };
+
 
 #endif MURACH_CIRCLE_H

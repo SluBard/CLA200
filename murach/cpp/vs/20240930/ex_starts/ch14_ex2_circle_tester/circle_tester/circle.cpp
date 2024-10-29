@@ -20,3 +20,22 @@ double Circle::get_area() const {
 }
 
 // operator definitions go here
+Circle Circle::operator+(const Circle &rhs) {
+	Circle c;
+	c.set_radius(radius + rhs.radius);
+	return c;
+}
+Circle Circle::operator-(const Circle &rhs) {
+	Circle c;
+	c.set_radius(radius - rhs.radius);
+	return c;
+}
+Circle Circle::operator++() {
+	++radius;
+	return *this;
+}
+ostream& operator<<(ostream& out, const Circle& c) {
+	out << "radious=" << c.get_radius() << "|diameter=" << c.get_diameter() << "|circumference=";
+	out	<< c.get_circumference() << "|area=" << c.get_area();
+	return out;
+}

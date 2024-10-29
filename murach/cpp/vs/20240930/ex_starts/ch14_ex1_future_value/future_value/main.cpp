@@ -3,12 +3,12 @@
 #include <string>
 #include <limits>
 #include "console.h"
+#include "Finance.h"
 
 using namespace std;
 
 // declare program-specific function
-double calculate_future_value(double monthly_investment,
-    double yearly_interest_rate, int years);
+//double calculate_future_value(double monthly_investment,    double yearly_interest_rate, int years);
 
 int main() {
     cout << "The Future Value Calculator\n\n";
@@ -18,15 +18,15 @@ int main() {
         // get input
         cout << "INPUT\n";
         double monthly_investment =
-            console::get_double("Monthly Investment:   ", 0, 10000);
+            Console::get_double("Monthly Investment:   ", 0, 10000);
         double yearly_rate =
-            console::get_double("Yearly Interest Rate: ", 0, 30);
+            Console::get_double("Yearly Interest Rate: ", 0, 30);
         int years =
-            console::get_int("Years:                ", 0, 100);
+            Console::get_int("Years:                ", 0, 100);
         cout << endl;
 
         // calculate future value
-        double future_value = calculate_future_value(monthly_investment,
+        double future_value = Finance::calculate_future_value(monthly_investment,
             yearly_rate, years);
 
         // display the output to user
@@ -40,12 +40,13 @@ int main() {
             << "Future Value:         " << future_value << "\n\n";
 
         // see if the user wants to continue
-        choice = console::get_char("Continue? (y/n): ");
+        choice = Console::get_char("Continue? (y/n): ");
     };
     cout << "Bye!\n\n";
 }
 
 // define program-specific function
+/*
 double calculate_future_value(double monthly_investment,
     double yearly_interest_rate, int years) {
 
@@ -61,3 +62,4 @@ double calculate_future_value(double monthly_investment,
     }
     return future_value;
 }
+*/
