@@ -3,7 +3,7 @@
 #include <sstream> 
 #include <iomanip>
 #include <string>
-#include <vector>
+#include <list>
 
 using namespace std;
 
@@ -21,8 +21,8 @@ bool Movie::equals(Movie& to_compare) {
 
 const string movies_file = "movies.txt";
 
-vector<Movie> read_movies_from_file() {
-    vector<Movie> movies;
+list<Movie> read_movies_from_file() {
+    list<Movie> movies;
 
     ifstream input_file(movies_file);
     if (input_file) {    // if file opened successfully...
@@ -33,14 +33,14 @@ vector<Movie> read_movies_from_file() {
 
             getline(ss, movie.title, '\t');     // get title
             ss >> movie.year >> movie.stars;    // get year and stars
-            movies.push_back(movie);            // add movie to vector
+            movies.push_back(movie);            // add movie to list
         }
         input_file.close();
     }
     return movies;
 }
 
-void write_movies_to_file(const vector<Movie>& movies) {
+void write_movies_to_file(const list<Movie>& movies) {
     ofstream output_file(movies_file);
     if (output_file) {     // if file opened successfully...
         for (Movie movie : movies) {
@@ -52,7 +52,7 @@ void write_movies_to_file(const vector<Movie>& movies) {
     }
 }
 
-void view_movies(const vector<Movie>& movies) {
+void view_movies(const list<Movie>& movies) {
     int col_width = 8;
     cout << left
         << setw(col_width / 2) << " "
@@ -83,7 +83,7 @@ Movie get_movie() {
     return movie;
 }
 
-void add_movie(vector<Movie>& movies) {
+void add_movie(list<Movie>& movies) {
     Movie movie = get_movie();
 
     // check if movie already exists
@@ -107,7 +107,7 @@ void add_movie(vector<Movie>& movies) {
     }
 }
 
-int get_movie_number(const vector<Movie>& movies) {
+int get_movie_number(const list<Movie>& movies) {
 	cin.ignore(1000, '\n');
 	int number;
     while (true) {
@@ -122,14 +122,33 @@ int get_movie_number(const vector<Movie>& movies) {
     }
 }
 
-void delete_movie(vector<Movie>& movies) {
+void delete_movie(list<Movie>& movies) {
     int number = get_movie_number(movies);
 
-    int index = number - 1;
-    Movie movie = movies[index];
-    movies.erase(movies.begin() + index);
+    auto iter = movies.begin();
+    for (int i = 1; i < number; ++i) {
+        ++iter;
+    }
+    Movie movie = *iter;
+    movies.erase(iter);
     write_movies_to_file(movies);
     cout << movie.title << " was deleted.\n\n";
+}
+
+void modify_movie(list<Movie>& movies) {
+    int number = get_movie_number(movies);
+
+    auto iter = movies.begin();
+    for (int i = 1; i < number; ++i) {
+        ++iter;
+    }
+    Movie movie = *iter;
+    
+    cout << "Enter new number of stars (1-5) for " << movie.title << ": ";
+    cin >> movie.stars;
+
+    write_movies_to_file(movies);
+    cout << movie.title << " was updated.\n\n";
 }
 
 void display_menu() {
@@ -137,13 +156,14 @@ void display_menu() {
         << "v - View movie list\n"
         << "a - Add a movie\n"
         << "d - Delete a movie\n"
+        << "m - Modify a movie\n"
         << "x - Exit\n\n";
 }
 
 int main() {
     cout << "The Movie List program\n\n";
     display_menu();
-    vector<Movie> movies = read_movies_from_file();
+    list<Movie> movies = read_movies_from_file();
     char command = 'v';
     while (command != 'x') {
         cout << "Command: ";
@@ -157,6 +177,9 @@ int main() {
             break;
         case 'd':
             delete_movie(movies);
+            break;
+        case 'm':
+            modify_movie(movies);
             break;
         case 'x':
             cout << "Bye!\n\n";

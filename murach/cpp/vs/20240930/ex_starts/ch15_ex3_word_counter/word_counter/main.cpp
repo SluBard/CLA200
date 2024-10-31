@@ -1,13 +1,14 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <vector>
+#include <set>
+//#include <vector>
 #include <map>
 
 using namespace std;
 
-vector<string> display_and_load_words(string filename);
-map<string, int> get_word_count(const vector<string>& words);
+multiset<string> display_and_load_words(string filename);
+map<string, int> get_word_count(const multiset<string>& words);
 
 int main() {
     cout << "The Word Counter program\n\n";
@@ -15,12 +16,13 @@ int main() {
     string filename = "dickens.txt";
     auto words = display_and_load_words(filename);
 
-    cout << words.size() << " WORDS: ";
+    cout << "WORD COUNT: " << words.size() << endl << endl;
+    /*
     for (string word : words) {
         cout << word << ' ';
     }
     cout << endl << endl;
-
+    */
     auto word_count = get_word_count(words);
 
     cout << word_count.size() << " UNIQUE WORDS: ";
@@ -36,14 +38,15 @@ int main() {
     cout << endl << endl;
 }
 
-vector<string> display_and_load_words(string filename) {
-    vector<string> words;
+multiset<string> display_and_load_words(string filename) {
+    multiset<string> words;
     ifstream infile(filename);
 
     if (infile) {
         string word;
+        cout << "FILE TEXT: ";
         while (infile >> word) {
-
+            cout << word << " ";
             string new_word = "";
             for (char c : word) {
                 if (c == '.' || c == ',') {
@@ -56,15 +59,16 @@ vector<string> display_and_load_words(string filename) {
                     new_word += c;
                 }
             }
-			cout << new_word << ' ';
-            words.push_back(new_word);      // add word 
+			//cout << new_word << ' ';
+            words.insert(new_word);      // add word 
         }
         infile.close();
     }
+    cout << endl << endl;
     return words;
 }
 
-map<string, int> get_word_count(const vector<string>& words) {
+map<string, int> get_word_count(const multiset<string>& words) {
     map<string, int> word_count{};
 
     for (string word : words) {
