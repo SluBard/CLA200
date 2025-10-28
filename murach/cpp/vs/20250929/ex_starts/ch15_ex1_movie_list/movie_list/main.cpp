@@ -156,7 +156,7 @@ void modify_movie(list<Movie>& movies) {
     for (int i = 1; i < number; ++i) {
         ++iter;
     }
-    Movie &movie = *iter;
+    Movie &movie = *iter; // note the reference in order to modify the current entry instead of a copy
     
     cout << "Enter new number of stars (1-5) for " << movie.title << ": ";
     cin >> movie.stars;

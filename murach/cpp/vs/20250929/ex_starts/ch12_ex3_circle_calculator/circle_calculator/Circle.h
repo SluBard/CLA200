@@ -3,7 +3,7 @@ class Circle
 {
 private:
 	double r;
-	const double pi = 3.14159;
+	const double pi = 3.14159; //aslo M_PI in <cmath>
 public:
 	Circle();
 	Circle(double);
