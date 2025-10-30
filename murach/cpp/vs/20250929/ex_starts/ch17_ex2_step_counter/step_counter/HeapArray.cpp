@@ -5,6 +5,7 @@ HeapArray::HeapArray(const int size) {
 	array_size = size;                       // set array size property
 	arr = new int[array_size] {0};           // allocate memory on heap
 }
+// copy contructor
 HeapArray::HeapArray(const HeapArray& copy) {
 	array_size = copy.array_size;
 	arr = new int[array_size];
@@ -12,6 +13,7 @@ HeapArray::HeapArray(const HeapArray& copy) {
 		arr[i] = copy.arr[i];
 	}
 }
+// copy assignment
 HeapArray& HeapArray::operator=(const HeapArray& copy) {
 	array_size = copy.array_size;
 	int* tmp = new int[array_size];

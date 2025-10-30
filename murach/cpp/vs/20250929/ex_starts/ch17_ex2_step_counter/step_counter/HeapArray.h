@@ -9,7 +9,9 @@ private:
 public:
 	// constructor
 	HeapArray(const int);
+	// copy constructor
 	HeapArray(const HeapArray& copy);
+	// copy assignment
 	HeapArray& operator=(const HeapArray& copy);
 
 	// destructor
